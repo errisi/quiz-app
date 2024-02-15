@@ -11,11 +11,10 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
-    "import/no-extraneous-dependencies": "off",
+    'import/no-extraneous-dependencies': 'off',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
-      
     ],
   },
 };
