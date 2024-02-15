@@ -1,0 +1,46 @@
+{
+  "name": "quiz",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --max-warnings 0 --fix",
+    "format": "prettier . --ignore-path ./gitignore --write",
+    "fix-style": "npm run lint && npm run format",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@mate-academy/eslint-config-react-typescript": "^1.0.15",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.70.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.56.0",
+    "eslint-config-standard-with-typescript": "^43.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.5.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "3.2.5",
+    "react-router-dom": "^6.22.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.0"
+  },
+  "lint-staged": {
+    "*.ts": "npm run fix-style",
+    "*.tsx": "npm run fix-style"
+  }
+}
