@@ -1,0 +1,44 @@
+@import '../../../../../styles/variables/colors.scss';
+
+.select {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+
+  &__item {
+    -webkit-tap-highlight-color: transparent;
+    background-color: $color-primary-light;
+    width: 102px;
+    min-height: 144px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: inherit;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color 0.2s, border 0.2s;
+
+    &:hover {
+      background-color: $color-secondary-dark;
+    }
+
+    &:active {
+      background-color: $color-secondary-dark-20;
+      border: $color-secondary-dark 1px solid;
+    }
+
+    &__text {
+      width: 100%;
+      text-wrap: wrap;
+      overflow-wrap: break-word;
+      font-weight: 600;
+      font-size: 17px;
+      line-height: 24px;
+      padding: 20px 18px;
+      color: $color-text-primary-light;
+    }
+  }
+}

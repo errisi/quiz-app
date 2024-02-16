@@ -1,0 +1,97 @@
+@import '../../../../../styles/variables/colors.scss';
+
+.actions__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.select {
+  width: 100%;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 64px;
+
+  &__item {
+    background-color: $color-primary-light;
+    width: 100%;
+    min-height: 60px;
+    border-radius: 16px;
+    display: block;
+    text-align: start;
+    font-family: inherit;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition:
+      background-color 0.2s,
+      border 0.2s;
+
+    &:hover {
+      background-color: $color-secondary-dark-20;
+    }
+
+    &:active {
+      background-color: $color-secondary-dark-20;
+      border: $color-secondary-dark 1px solid;
+    }
+
+    &_active {
+      background-color: $color-primary-light;
+      width: 326px;
+      min-height: 60px;
+      border-radius: 16px;
+      display: block;
+      text-align: start;
+      font-family: inherit;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition:
+        background-color 0.2s,
+        border 0.2s;
+      background-color: $color-secondary-dark-20;
+      border: $color-secondary-dark 1px solid;
+    }
+
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0 27px;
+
+      &__text {
+        width: fit-content;
+        text-wrap: wrap;
+        overflow-wrap: break-word;
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 24px;
+        padding: 20px 0 18px;
+        color: $color-text-primary-light;
+      }
+
+      &__checkbox {
+        width: 23px;
+        height: 23px;
+        border: 1px solid $color-secondary-dark;
+        background-color: $color-tertiary;
+        border-radius: 8px;
+
+        &_checked {
+          width: 23px;
+          height: 23px;
+          border: 1px solid $color-secondary-dark;
+          background-color: $color-secondary-dark;
+          border-radius: 8px;
+          position: relative;
+          background-image: url(/public/checkbox-mark.svg);
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+}

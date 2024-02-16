@@ -1,93 +1,54 @@
-import { useCallback, useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useCallback, useEffect, useState } from 'react';
 import styles from './QuizPage.module.scss';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import * as QuestionsActions from '../../features/Questions';
+import { QuizHeader } from '../../components/Quiz/QuizHeader/QuizHeader';
+import { QuizContent } from '../../components/Quiz/QuizContent/QuizContent';
 
 export const QuizPage = () => {
+  const dispatch = useAppDispatch();
+
+  const { questions, loading, error } = useAppSelector(
+    (state) => state.Questions,
+  );
+
   const [page, setPage] = useState(1);
-  const MaxPage = 5;
+  const currentQuestion = questions[page - 1];
 
   const handleGoBack = useCallback(() => {
-    setPage((c) => (c - 1 >= 0 ? c - 1 : c));
+    setPage((c) => (c - 1 > 0 ? c - 1 : c));
   }, [setPage]);
 
   const handleGoForward = useCallback(() => {
-    setPage((c) => (c + 1 <= MaxPage ? c + 1 : c));
-  }, [setPage]);
+    setPage((c) => (c + 1 <= questions.length ? c + 1 : c));
+  }, [questions.length]);
 
-  const selectItems = [
-    '1',
-    '2',
-    '123123123123',
-    'asdasfdjhsagfdddddddddddddddddddddsdkfghsdfgkj',
-  ];
+  useEffect(() => {
+    dispatch(QuestionsActions.init());
+  }, []);
 
   return (
-    <div className={styles.quiz}>
-      <div className={styles.quiz__header}>
-        <div className={styles.quiz__header__top}>
-          <button
-            aria-label='nav__button'
-            type='button'
-            onClick={handleGoBack}
-            className={styles.quiz__header__top__button}
-          >
-            <img
-              src='back-button.svg'
-              alt=''
-              className={styles.quiz__header__top__button__icon}
-            />
-          </button>
-          <div className={styles.quiz__header__top__pages}>
-            <span className={styles.quiz__header__top__pages__page}>
-              {page}
-            </span>
-            <span className={styles.quiz__header__top__pages__max_page}>
-              /{MaxPage}
-            </span>
-          </div>
-          <button
-            aria-label='nav__button'
-            type='button'
-            onClick={handleGoForward}
-            className={styles.quiz__header__top__button}
-          >
-            <img
-              src='button.svg'
-              alt=''
-              className={styles.quiz__header__top__button__icon}
-            />
-          </button>
-        </div>
+    <>
+      {loading && <h1>Loading</h1>}
 
-        <div className={styles.quiz__progress__wrapper}>
-          <div className={styles.quiz__progress}>
-            <div
-              className={styles.quiz__progress__value}
-              style={{ width: `${(page / MaxPage) * 100}%` }}
-            />
-          </div>
-        </div>
-      </div>
+      {error && <h1>Error: {error} </h1>}
 
-      <div className={styles.quiz__content}>
-        <div className={styles.quiz__content__description}>
-          <h1 className={styles.quiz__content__description__title}>
-            What is your preferred language?
-          </h1>
-          <p className={styles.quiz__content__description__hint}>
-            Choose language
-          </p>
-        </div>
+      {questions.length > 0 && !loading && !error && (
+        <div className={styles.quiz}>
+          <QuizHeader
+            handleGoBack={handleGoBack}
+            handleGoForward={handleGoForward}
+            page={page}
+            maxPage={questions.length}
+          />
 
-        <div className={styles.quiz__content__actions}>
-          <div className={styles.select}>
-            {selectItems.map((item) => (
-              <div className={styles.select__item}>
-                <p className={styles.select__item__text}>{item}</p>
-              </div>
-            ))}
-          </div>
+          <QuizContent
+            question={currentQuestion}
+            handleGoForward={handleGoForward}
+          />
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
