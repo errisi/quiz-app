@@ -18,7 +18,9 @@
     font-family: inherit;
     cursor: pointer;
     border: 1px solid transparent;
-    transition: background-color 0.2s, border 0.2s;
+    transition:
+      background-color 0.2s,
+      border 0.2s;
 
     &:hover {
       background-color: $color-secondary-dark;
