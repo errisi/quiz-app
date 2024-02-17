@@ -24,20 +24,22 @@ export const MultipleSelect: FC<Props> = ({ question, handleGoForward }) => {
       <div className={styles.select}>
         {question.options.map((option) => (
           <button
-            onClick={() => handleToggleCheckbox(option)}
+            onClick={() => handleToggleCheckbox(option.value)}
             aria-label=''
             type='button'
             className={
-              selectedOptions.includes(option)
+              selectedOptions.includes(option.value)
                 ? styles.select__item_active
                 : styles.select__item
             }
           >
             <div className={styles.select__item__content}>
-              <p className={styles.select__item__content__text}>{option}</p>
+              <p className={styles.select__item__content__text}>
+                {option.value}
+              </p>
               <div
                 className={
-                  selectedOptions.includes(option)
+                  selectedOptions.includes(option.value)
                     ? styles.select__item__content__checkbox_checked
                     : styles.select__item__content__checkbox
                 }

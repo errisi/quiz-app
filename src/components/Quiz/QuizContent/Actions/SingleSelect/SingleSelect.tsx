@@ -16,7 +16,7 @@ export const SingleSelect: FC<Props> = ({ question, handleGoForward }) => (
         type='button'
         className={styles.select__item}
       >
-        <p className={styles.select__item__text}>{option}</p>
+        <p className={styles.select__item__text}>{option.value}</p>
       </button>
     ))}
   </div>

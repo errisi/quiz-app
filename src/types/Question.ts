@@ -4,5 +4,8 @@ export interface Question {
   type: 'single-select' | 'multiple-select' | 'single-select-image' | 'bubble';
   title: string;
   hint: string | null;
-  options: string[];
+  options: {
+    icon?: string;
+    value: string;
+  }[];
 }

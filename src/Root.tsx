@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { QuizPage } from './pages/quizPage/QuizPage';
 import { App } from './App';
@@ -13,9 +18,9 @@ export const Root = () => (
     <Router>
       <Routes>
         <Route path='/' element={<App />}>
-          <Route index element={<QuizPage />} />
+          <Route index element={<Navigate to='quiz/' />} />
 
-          <Route path='quiz/:page' element={<QuizPage />} />
+          <Route path='quiz/' element={<QuizPage />} />
 
           <Route path='loader/' element={<LoaderPage />} />
           <Route path='email/' element={<EmailPage />} />

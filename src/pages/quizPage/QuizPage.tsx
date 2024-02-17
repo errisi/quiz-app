@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import styles from './QuizPage.module.scss';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import * as QuestionsActions from '../../features/Questions';
-import { QuizHeader } from '../../components/Quiz/QuizHeader/QuizHeader';
 import { QuizContent } from '../../components/Quiz/QuizContent/QuizContent';
 
 export const QuizPage = () => {
@@ -13,16 +13,27 @@ export const QuizPage = () => {
     (state) => state.Questions,
   );
 
-  const [page, setPage] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const pageFromParams = searchParams.get('page') || '1';
+
+  const page = Number(pageFromParams);
+
+  const navigate = useNavigate();
+
+  const handleGoForward = () => {
+    if (page !== questions.length) {
+      setSearchParams(
+        `?page=${page + 1 <= questions.length ? page + 1 : page}`,
+      );
+
+      return;
+    }
+
+    navigate('../loader/');
+  };
+
   const currentQuestion = questions[page - 1];
-
-  const handleGoBack = useCallback(() => {
-    setPage((c) => (c - 1 > 0 ? c - 1 : c));
-  }, [setPage]);
-
-  const handleGoForward = useCallback(() => {
-    setPage((c) => (c + 1 <= questions.length ? c + 1 : c));
-  }, [questions.length]);
 
   useEffect(() => {
     dispatch(QuestionsActions.init());
@@ -36,13 +47,6 @@ export const QuizPage = () => {
 
       {questions.length > 0 && !loading && !error && (
         <div className={styles.quiz}>
-          <QuizHeader
-            handleGoBack={handleGoBack}
-            handleGoForward={handleGoForward}
-            page={page}
-            maxPage={questions.length}
-          />
-
           <QuizContent
             question={currentQuestion}
             handleGoForward={handleGoForward}

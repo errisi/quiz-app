@@ -21,7 +21,7 @@ export const init = createAsyncThunk('questions/fetch', async () => {
   return result;
 });
 
-const BestSeasonOngoingsSlice = createSlice({
+const QuestionsSlice = createSlice({
   name: 'questions',
   initialState,
   reducers: {
@@ -52,5 +52,5 @@ const BestSeasonOngoingsSlice = createSlice({
   },
 });
 
-export default BestSeasonOngoingsSlice.reducer;
-export const { set, setLoading, setError } = BestSeasonOngoingsSlice.actions;
+export default QuestionsSlice.reducer;
+export const { set, setLoading, setError } = QuestionsSlice.actions;

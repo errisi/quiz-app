@@ -1,7 +1,10 @@
 @import '../../styles/variables/colors.scss';
 
 .loader__wrapper {
-  height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;

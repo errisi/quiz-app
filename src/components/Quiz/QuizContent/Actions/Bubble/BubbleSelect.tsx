@@ -25,16 +25,23 @@ export const BubbleSelect: FC<Props> = ({ question, handleGoForward }) => {
         <div className={styles.select}>
           {question.options.map((option) => (
             <button
-              onClick={() => handleToggleCheckbox(option)}
+              onClick={() => handleToggleCheckbox(option.value)}
               aria-label=''
               type='button'
               className={
-                selectedOptions.includes(option)
+                selectedOptions.includes(option.value)
                   ? styles.select__item_active
                   : styles.select__item
               }
             >
-              <p className={styles.select__item__text}>{option}</p>
+              {!!option.icon && (
+                <img
+                  className={styles.select__item__icon}
+                  src={option.icon}
+                  alt=''
+                />
+              )}
+              <p className={styles.select__item__text}>{option.value}</p>
             </button>
           ))}
         </div>

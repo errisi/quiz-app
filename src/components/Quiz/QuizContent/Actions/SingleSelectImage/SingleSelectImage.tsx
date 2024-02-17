@@ -16,7 +16,10 @@ export const SingleSelectImage: FC<Props> = ({ question, handleGoForward }) => (
         type='button'
         className={styles.select__item}
       >
-        <p className={styles.select__item__text}>{option}</p>
+        {!!option.icon && (
+          <img className={styles.select__item__icon} src={option.icon} alt='' />
+        )}
+        <p className={styles.select__item__text}>{option.value}</p>
       </button>
     ))}
   </div>
