@@ -61,7 +61,10 @@
       { "icon": "/options-icons/action-icon.png", "value": "Action" },
       { "icon": "/options-icons/royal-icon.png", "value": "Obsession royale" },
       { "icon": "/options-icons/romance-icon.png", "value": "Romance" },
-      { "icon": "/options-icons/young-adult-icon.png", "value": "Jeune adulte" },
+      {
+        "icon": "/options-icons/young-adult-icon.png",
+        "value": "Jeune adulte"
+      },
       { "icon": "/options-icons/bad-boy-icon.png", "value": "Mauvais garçon" },
       { "icon": "/options-icons/billionaire-icon.png", "value": "Milliardaire" }
     ]

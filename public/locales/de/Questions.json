@@ -59,9 +59,15 @@
     "options": [
       { "icon": "/options-icons/warewolf-icon.png", "value": "Werwolf" },
       { "icon": "/options-icons/action-icon.png", "value": "Aktion" },
-      { "icon": "/options-icons/royal-icon.png", "value": "Königliche Obsession" },
+      {
+        "icon": "/options-icons/royal-icon.png",
+        "value": "Königliche Obsession"
+      },
       { "icon": "/options-icons/romance-icon.png", "value": "Romantik" },
-      { "icon": "/options-icons/young-adult-icon.png", "value": "Junger Erwachsener" },
+      {
+        "icon": "/options-icons/young-adult-icon.png",
+        "value": "Junger Erwachsener"
+      },
       { "icon": "/options-icons/bad-boy-icon.png", "value": "Böser Bub" },
       { "icon": "/options-icons/billionaire-icon.png", "value": "Milliardär" }
     ]
