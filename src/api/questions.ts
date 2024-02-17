@@ -1,4 +1,4 @@
-const BASE_URL = '/Questions.json';
+const BASE_URL = '/locales';
 
 async function request(url: string) {
   return fetch(BASE_URL + url).then((response) => {
@@ -10,6 +10,6 @@ async function request(url: string) {
   });
 }
 
-export const getQuestions = () => {
-  return request('');
+export const getQuestions = (locale: 'en' | 'fr' | 'de' | 'es') => {
+  return request(`/${locale}/Questions.json`);
 };

@@ -16,7 +16,7 @@ const initialState: QuestionsState = {
 };
 
 export const init = createAsyncThunk('questions/fetch', async () => {
-  const result = await getQuestions();
+  const result = await getQuestions('en');
 
   return result;
 });
