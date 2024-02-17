@@ -1,0 +1,23 @@
+@import '../../styles/variables/colors.scss';
+
+.circle {
+  &__background {
+    fill: none;
+    stroke: $color-white;
+  }
+
+  &__progress {
+    fill: none;
+    stroke: $color-secondary;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &__text {
+    font-family: Albert Sans;
+    font-weight: 800;
+    font-size: 52px;
+    line-height: 62.4px;
+    fill: $color-text-primary-light;
+  }
+}

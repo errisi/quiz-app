@@ -1,0 +1,23 @@
+@import '../../styles/variables/colors.scss';
+
+.loader__wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+
+  &__description {
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 25px;
+    color: $color-text-primary-light;
+  }
+}

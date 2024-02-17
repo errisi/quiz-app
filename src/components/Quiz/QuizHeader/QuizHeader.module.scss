@@ -76,6 +76,7 @@
       background-color: $color-secondary;
       height: 100%;
       z-index: 1;
+      transition: width 1s;
     }
   }
 }

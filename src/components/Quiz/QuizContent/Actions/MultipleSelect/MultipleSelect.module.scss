@@ -40,14 +40,13 @@
 
     &_active {
       background-color: $color-primary-light;
-      width: 326px;
+      width: 100%;
       min-height: 60px;
       border-radius: 16px;
       display: block;
       text-align: start;
       font-family: inherit;
       cursor: pointer;
-      border: 1px solid transparent;
       transition:
         background-color 0.2s,
         border 0.2s;
