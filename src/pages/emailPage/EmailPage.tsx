@@ -1,10 +1,24 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styles from './EmailPage.module.scss';
 import { Button } from '../../components/Button/Button';
 
 export const EmailPage = () => {
   const [query, setQuery] = useState('');
+  const { t } = useTranslation();
+
+  const formatAgreementWithSpan = (text: string, className: string) => {
+    return text.replace(
+      /\b(Privacy policy|Terms of use)\b/gi,
+      `<span class="${className}">$1</span>`,
+    );
+  };
+
+  const formattedAgreement = formatAgreementWithSpan(
+    t('email.agreement'),
+    styles.email_page__content__agreement_span,
+  );
 
   const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
@@ -17,10 +31,10 @@ export const EmailPage = () => {
       <div className={styles.email_page__content}>
         <div className={styles.email_page__content__text}>
           <h1 className={styles.email_page__content__text__title}>
-            Email Page
+            {t('email.title')}
           </h1>
           <p className={styles.email_page__content__text__hint}>
-            Enter your email to get full access
+            {t('email.hint')}
           </p>
         </div>
 
@@ -28,22 +42,17 @@ export const EmailPage = () => {
           value={query}
           onChange={handleQueryChange}
           className={styles.input}
-          placeholder='Your email'
+          placeholder={t('email.placeholder')}
         />
 
-        <p className={styles.email_page__content__agreement}>
-          By continuing I agree with{' '}
-          <span className={styles.email_page__content__agreement_span}>
-            Privacy policy
-          </span>{' '}
-          and{' '}
-          <span className={styles.email_page__content__agreement_span}>
-            Terms of use.
-          </span>
-        </p>
+        <p
+          className={styles.email_page__content__agreement}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: formattedAgreement }}
+        />
       </div>
 
-      <Button onClick={() => navigate('../success')}>Next</Button>
+      <Button onClick={() => navigate('../success')}>{t('button.next')}</Button>
     </div>
   );
 };

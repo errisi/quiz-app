@@ -1,8 +1,9 @@
 @import '../../styles/variables/colors.scss';
+@import '../../styles/variables/sizes.scss';
 
 .button {
   width: 100%;
-  min-height: 56px;
+  min-height: $button-height;
   background-color: $color-secondary;
   border-radius: 100px;
   font-family: Albert Sans;

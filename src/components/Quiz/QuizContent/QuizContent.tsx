@@ -34,29 +34,24 @@ export const QuizContent: FC<Props> = ({ question, handleGoForward }) => {
         </p>
       </div>
 
-      <div className={styles.quiz__content__actions}>
-        {question.type === 'single-select' && (
-          <SingleSelect question={question} handleGoForward={handleGoForward} />
-        )}
+      {question.type === 'single-select' && (
+        <SingleSelect question={question} handleGoForward={handleGoForward} />
+      )}
 
-        {question.type === 'single-select-image' && (
-          <SingleSelectImage
-            question={question}
-            handleGoForward={handleGoForward}
-          />
-        )}
+      {question.type === 'single-select-image' && (
+        <SingleSelectImage
+          question={question}
+          handleGoForward={handleGoForward}
+        />
+      )}
 
-        {question.type === 'multiple-select' && (
-          <MultipleSelect
-            question={question}
-            handleGoForward={handleGoForward}
-          />
-        )}
+      {question.type === 'multiple-select' && (
+        <MultipleSelect question={question} handleGoForward={handleGoForward} />
+      )}
 
-        {question.type === 'bubble' && (
-          <BubbleSelect question={question} handleGoForward={handleGoForward} />
-        )}
-      </div>
+      {question.type === 'bubble' && (
+        <BubbleSelect question={question} handleGoForward={handleGoForward} />
+      )}
     </div>
   );
 };

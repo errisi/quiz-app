@@ -13,6 +13,7 @@ import { SuccessPage } from './pages/successPage/SuccessPage';
 import { NotFoundPage } from './pages/notFoundPage/NotFoundPage';
 import { EmailPage } from './pages/emailPage/EmailPage';
 import store, { persistor } from './store/store';
+import './i18n';
 
 export const Root = () => (
   <Provider store={store}>

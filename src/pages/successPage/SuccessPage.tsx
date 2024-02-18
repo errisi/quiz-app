@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import * as AnswersActions from '../../features/Answers';
 import { Button } from '../../components/Button/Button';
 import styles from './SuccessPage.module.scss';
@@ -7,6 +8,7 @@ import { useAppDispatch } from '../../store/hooks';
 export const SuccessPage = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleRetakeQuiz = () => {
     dispatch(AnswersActions.set([]));
@@ -17,9 +19,11 @@ export const SuccessPage = () => {
     <div className={styles.success}>
       <div className={styles.success__content}>
         <div className={styles.success__content__text}>
-          <h1 className={styles.success__content__text__title}>Thank you</h1>
+          <h1 className={styles.success__content__text__title}>
+            {t('success.title')}
+          </h1>
           <p className={styles.success__content__text__hint}>
-            for supporting us and passing quiz
+            {t('success.hint')}
           </p>
         </div>
         <img
@@ -32,9 +36,9 @@ export const SuccessPage = () => {
       <div className={styles.success__actions}>
         <button type='button' className={styles.success__actions__download}>
           <img src='./download-icon.svg' alt='' />
-          Download my answers
+          {t('success.download')}
         </button>
-        <Button onClick={handleRetakeQuiz}>Retake quiz</Button>
+        <Button onClick={handleRetakeQuiz}>{t('button.retake')}</Button>
       </div>
     </div>
   );

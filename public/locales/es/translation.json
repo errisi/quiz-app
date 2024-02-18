@@ -1,0 +1,20 @@
+{
+  "loader": {
+    "hint": "Buscando colecciones para ti..."
+  },
+  "email": {
+    "title": "Página de correo electrónico",
+    "hint": "Ingrese su correo electrónico para obtener acceso completo",
+    "placeholder": "Tu correo electrónico",
+    "agreement": "Al continuar, acepto la Política de privacidad y los Términos de uso."
+  },
+  "success": {
+    "title": "Gracias",
+    "hint": "por apoyarnos y aprobar el cuestionario",
+    "download": "Descarga mis respuestas"
+  },
+  "button": {
+    "next": "Próxima",
+    "retake": "Volver a hacer el cuestionario"
+  }
+}

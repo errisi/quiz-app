@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import styles from './QuizPage.module.scss';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -10,6 +11,8 @@ import { QuizContent } from '../../components/Quiz/QuizContent/QuizContent';
 
 export const QuizPage = () => {
   const dispatch = useAppDispatch();
+
+  const { i18n } = useTranslation();
 
   const { questions, loading, error } = useAppSelector(
     (state) => state.Questions,
@@ -31,6 +34,7 @@ export const QuizPage = () => {
 
   useEffect(() => {
     dispatch(QuestionsActions.init(lang));
+    i18n.changeLanguage(lang);
   }, [lang]);
 
   useEffect(() => {

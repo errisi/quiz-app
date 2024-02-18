@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Question } from '../../../../../types/Question';
 import styles from './BubbleSelect.module.scss';
 import { Button } from '../../../../Button/Button';
@@ -9,6 +10,7 @@ type Props = {
 };
 
 export const BubbleSelect: FC<Props> = ({ question, handleGoForward }) => {
+  const { t } = useTranslation();
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
   const handleToggleCheckbox = (option: string) => {
@@ -51,7 +53,7 @@ export const BubbleSelect: FC<Props> = ({ question, handleGoForward }) => {
         onClick={() => handleGoForward(selectedOptions.join(', '))}
         disabled={!selectedOptions.length}
       >
-        Next
+        {t('button.next')}
       </Button>
     </div>
   );

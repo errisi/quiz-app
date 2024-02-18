@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Question } from '../../../../../types/Question';
 import styles from './MultipleSelect.module.scss';
 import { Button } from '../../../../Button/Button';
@@ -9,6 +10,7 @@ type Props = {
 };
 
 export const MultipleSelect: FC<Props> = ({ question, handleGoForward }) => {
+  const { t } = useTranslation();
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
   const handleToggleCheckbox = (option: string) => {
@@ -59,7 +61,7 @@ export const MultipleSelect: FC<Props> = ({ question, handleGoForward }) => {
         onClick={() => handleGoForward(selectedOptions.join(', '))}
         disabled={!selectedOptions.length}
       >
-        Next
+        {t('button.next')}
       </Button>
     </div>
   );

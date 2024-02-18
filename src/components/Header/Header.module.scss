@@ -1,9 +1,11 @@
 @import '../../styles/variables/colors.scss';
+@import '../../styles/variables/sizes.scss';
 
 .quiz {
   &__header {
     width: 100%;
-    margin-bottom: 44px;
+    height: $header-height;
+    margin-bottom: $header-margin-bottom;
 
     &__top {
       width: 100%;

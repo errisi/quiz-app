@@ -6,9 +6,12 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
-  width: 100%;
+  max-width: 100%;
   font-family: 'Nunito Sans', sans-serif;
+}
+
+body {
+  max-width: 100%;
 }
 
 * {

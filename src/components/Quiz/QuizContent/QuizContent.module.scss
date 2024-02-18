@@ -1,10 +1,11 @@
 @import '../../../styles/variables/colors.scss';
+@import '../../../styles/variables/sizes.scss';
 
 .quiz {
   &__content {
     width: 100vw;
     padding: 0 20px;
-    height: 100%;
+    height: calc(100vh - $header-height - $header-margin-bottom);
 
     &__description {
       display: flex;
@@ -33,11 +34,6 @@
         text-align: center;
         color: $color-text-secondary;
       }
-    }
-
-    &__actions {
-      width: 100%;
-      height: 74%;
     }
   }
 }
