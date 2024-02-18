@@ -8,7 +8,7 @@ import { BubbleSelect } from './Actions/Bubble/BubbleSelect';
 
 type Props = {
   question: Question;
-  handleGoForward: () => void;
+  handleGoForward: (answer: string) => void;
 };
 
 export const QuizContent: FC<Props> = ({ question, handleGoForward }) => {

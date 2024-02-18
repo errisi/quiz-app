@@ -5,7 +5,7 @@ import { Button } from '../../../../Button/Button';
 
 type Props = {
   question: Question;
-  handleGoForward: () => void;
+  handleGoForward: (answer: string) => void;
 };
 
 export const BubbleSelect: FC<Props> = ({ question, handleGoForward }) => {
@@ -47,7 +47,10 @@ export const BubbleSelect: FC<Props> = ({ question, handleGoForward }) => {
         </div>
       </div>
 
-      <Button onClick={handleGoForward} disabled={!selectedOptions.length}>
+      <Button
+        onClick={() => handleGoForward(selectedOptions.join(', '))}
+        disabled={!selectedOptions.length}
+      >
         Next
       </Button>
     </div>

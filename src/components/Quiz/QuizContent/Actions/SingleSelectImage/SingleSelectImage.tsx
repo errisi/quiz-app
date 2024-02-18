@@ -4,14 +4,14 @@ import styles from './SingleSelectImage.module.scss';
 
 type Props = {
   question: Question;
-  handleGoForward: () => void;
+  handleGoForward: (answer: string) => void;
 };
 
 export const SingleSelectImage: FC<Props> = ({ question, handleGoForward }) => (
   <div className={styles.select}>
     {question.options.map((option) => (
       <button
-        onClick={handleGoForward}
+        onClick={() => handleGoForward(option.value)}
         aria-label=''
         type='button'
         className={styles.select__item}

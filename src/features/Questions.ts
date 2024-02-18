@@ -2,6 +2,7 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { Question } from '../types/Question';
 import { getQuestions } from '../api/questions';
+import { Locale } from '../types/Locale';
 
 type QuestionsState = {
   questions: Question[];
@@ -15,11 +16,14 @@ const initialState: QuestionsState = {
   error: '',
 };
 
-export const init = createAsyncThunk('questions/fetch', async () => {
-  const result = await getQuestions('en');
+export const init = createAsyncThunk(
+  'questions/fetch',
+  async (lang: Locale) => {
+    const result = await getQuestions(lang);
 
-  return result;
-});
+    return result;
+  },
+);
 
 const QuestionsSlice = createSlice({
   name: 'questions',

@@ -1,11 +1,15 @@
 import { useNavigate } from 'react-router-dom';
+import * as AnswersActions from '../../features/Answers';
 import { Button } from '../../components/Button/Button';
 import styles from './SuccessPage.module.scss';
+import { useAppDispatch } from '../../store/hooks';
 
 export const SuccessPage = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const handleRetakeQuiz = () => {
+    dispatch(AnswersActions.set([]));
     navigate('../quiz/');
   };
 

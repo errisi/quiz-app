@@ -4,14 +4,14 @@ import { Question } from '../../../../../types/Question';
 
 type Props = {
   question: Question;
-  handleGoForward: () => void;
+  handleGoForward: (answer: string) => void;
 };
 
 export const SingleSelect: FC<Props> = ({ question, handleGoForward }) => (
   <div className={styles.select}>
     {question.options.map((option) => (
       <button
-        onClick={handleGoForward}
+        onClick={() => handleGoForward(option.value)}
         aria-label=''
         type='button'
         className={styles.select__item}

@@ -1,3 +1,5 @@
+import { Locale } from '../types/Locale';
+
 const BASE_URL = '/locales';
 
 async function request(url: string) {
@@ -10,6 +12,6 @@ async function request(url: string) {
   });
 }
 
-export const getQuestions = (locale: 'en' | 'fr' | 'de' | 'es') => {
+export const getQuestions = (locale: Locale) => {
   return request(`/${locale}/Questions.json`);
 };
