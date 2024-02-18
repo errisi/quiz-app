@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import exportFromJSON from 'export-from-json';
 import * as AnswersActions from '../../features/Answers';
 import { Button } from '../../components/Button/Button';
 import styles from './SuccessPage.module.scss';
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 export const SuccessPage = () => {
   const dispatch = useAppDispatch();
@@ -13,6 +14,16 @@ export const SuccessPage = () => {
   const handleRetakeQuiz = () => {
     dispatch(AnswersActions.set([]));
     navigate('../quiz/');
+  };
+
+  const { answers } = useAppSelector((state) => state.Answers);
+
+  const handleAnswersDownload = () => {
+    const data = answers;
+    const fileName = 'answers';
+    const exportType = exportFromJSON.types.csv;
+
+    exportFromJSON({ data, fileName, exportType });
   };
 
   return (
@@ -34,7 +45,11 @@ export const SuccessPage = () => {
       </div>
 
       <div className={styles.success__actions}>
-        <button type='button' className={styles.success__actions__download}>
+        <button
+          type='button'
+          onClick={handleAnswersDownload}
+          className={styles.success__actions__download}
+        >
           <img src='./download-icon.svg' alt='' />
           {t('success.download')}
         </button>

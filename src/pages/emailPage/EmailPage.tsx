@@ -5,8 +5,10 @@ import styles from './EmailPage.module.scss';
 import { Button } from '../../components/Button/Button';
 
 export const EmailPage = () => {
-  const [query, setQuery] = useState('');
   const { t } = useTranslation();
+  const [email, setEmail] = useState('');
+  const [emailDitry, setEmailDitry] = useState(false);
+  const [emailError, setEmailError] = useState(t('email.error-empty'));
 
   const formatAgreementWithSpan = (text: string, className: string) => {
     return text.replace(
@@ -21,10 +23,24 @@ export const EmailPage = () => {
   );
 
   const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
+    setEmail(e.target.value);
+    const re = new RegExp(
+      `^(([^<>()[\\]\\.,;:\\s@\\"]+(\\.[^<>()[\\]\\.,;:\\s@\\"]+)*)|(\\".+\\"))@(([^<>()[\\]\\.,;:\\s@\\"]+\\.)+[^<>()[\\]\\.,;:\\s@\\"]{2,})$`,
+      'i',
+    );
+
+    if (!re.test(String(e.target.value).toLowerCase())) {
+      setEmailError(t('email.error-incorrect'));
+    } else {
+      setEmailError('');
+    }
   };
 
   const navigate = useNavigate();
+
+  const onEmailBlur = () => {
+    setEmailDitry(true);
+  };
 
   return (
     <div className={styles.email_page}>
@@ -38,12 +54,18 @@ export const EmailPage = () => {
           </p>
         </div>
 
-        <input
-          value={query}
-          onChange={handleQueryChange}
-          className={styles.input}
-          placeholder={t('email.placeholder')}
-        />
+        <div className={styles.input__wrapper}>
+          <input
+            value={email}
+            onBlur={onEmailBlur}
+            onChange={handleQueryChange}
+            className={styles.input}
+            placeholder={t('email.placeholder')}
+          />
+          {emailDitry && emailError && (
+            <p className={styles.input__error}>{emailError}</p>
+          )}
+        </div>
 
         <p
           className={styles.email_page__content__agreement}
@@ -52,7 +74,12 @@ export const EmailPage = () => {
         />
       </div>
 
-      <Button onClick={() => navigate('../success')}>{t('button.next')}</Button>
+      <Button
+        onClick={() => navigate('../success')}
+        disabled={!!emailError.length}
+      >
+        {t('button.next')}
+      </Button>
     </div>
   );
 };

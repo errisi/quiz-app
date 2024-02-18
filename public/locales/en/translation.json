@@ -6,6 +6,8 @@
     "title": "Email Page",
     "hint": "Enter your email to get full access",
     "placeholder": "Your email",
+    "error-empty": "Email cannot be empty",
+    "error-incorrect": "Incorrect email",
     "agreement": "By continuing I agree with Privacy policy and Terms of use."
   },
   "success": {

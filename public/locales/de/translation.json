@@ -6,6 +6,8 @@
     "title": "E-Mail-Seite",
     "hint": "Geben Sie Ihre E-Mail-Adresse ein, um vollen Zugriff zu erhalten",
     "placeholder": "Deine E-Mail",
+    "error-empty": "E-Mail darf nicht leer sein",
+    "error-incorrect": "Falsche Email",
     "agreement": "Indem ich fortfahre, stimme ich den Datenschutzbestimmungen und Nutzungsbedingungen zu."
   },
   "success": {
