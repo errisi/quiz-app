@@ -33,7 +33,7 @@ export const Header: FC = () => {
           className={styles.quiz__header__top__button}
         >
           <img
-            src='/back-button.svg'
+            src='./back-button.svg'
             alt=''
             className={styles.quiz__header__top__button__icon}
           />
@@ -54,7 +54,7 @@ export const Header: FC = () => {
           className={styles.quiz__header__top__button}
         >
           <img
-            src='/button.svg'
+            src='./button.svg'
             alt=''
             className={styles.quiz__header__top__button__icon}
           />
