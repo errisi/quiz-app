@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styles from './QuizPage.module.scss';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import * as QuestionsActions from '../../features/Questions';
@@ -22,11 +22,9 @@ export const QuizPage = () => {
 
   const { lang } = useAppSelector((state) => state.Locale);
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { page: pageFromParams } = useParams();
 
-  const pageFromParams = searchParams.get('page') || '1';
-
-  const page = Number(pageFromParams);
+  const page = Number(pageFromParams || '1');
 
   const navigate = useNavigate();
 
@@ -87,14 +85,12 @@ export const QuizPage = () => {
     );
 
     if (page !== questions.length) {
-      setSearchParams(
-        `?page=${page + 1 <= questions.length ? page + 1 : page}`,
-      );
+      navigate(`../../quiz/${page + 1}`);
 
       return;
     }
 
-    navigate('../loader/');
+    navigate('../../loader/');
   };
 
   return (

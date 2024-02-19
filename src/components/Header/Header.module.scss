@@ -1,11 +1,26 @@
 @import '../../styles/variables/colors.scss';
 @import '../../styles/variables/sizes.scss';
+@import '../../styles/mixins/responsive.scss';
 
 .quiz {
   &__header {
     width: 100%;
     height: $header-height;
     margin-bottom: $header-margin-bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include onTablet {
+      max-width: 640px;
+      height: 62px;
+    }
+
+    @include onDesktop {
+      max-width: 800px;
+      height: 72px;
+    }
 
     &__top {
       width: 100%;

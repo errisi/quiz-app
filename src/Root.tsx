@@ -23,7 +23,10 @@ export const Root = () => (
           <Route path='/' element={<App />}>
             <Route index element={<Navigate to='quiz/' />} />
 
-            <Route path='quiz/' element={<QuizPage />} />
+            <Route path='quiz/'>
+              <Route index element={<Navigate to='../quiz/1' />} />
+              <Route path=':page' element={<QuizPage />} />
+            </Route>
 
             <Route path='loader/' element={<LoaderPage />} />
             <Route path='email/' element={<EmailPage />} />

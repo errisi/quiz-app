@@ -1,11 +1,20 @@
 @import '../../../styles/variables/colors.scss';
 @import '../../../styles/variables/sizes.scss';
+@import '../../../styles/mixins/responsive.scss';
 
 .quiz {
   &__content {
     width: 100vw;
     padding: 0 20px;
     height: calc(100vh - $header-height - $header-margin-bottom);
+
+    @include onTablet {
+      max-width: 640px;
+    }
+
+    @include onDesktop {
+      max-width: 800px;
+    }
 
     &__description {
       display: flex;

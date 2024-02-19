@@ -1,5 +1,6 @@
 @import '../../styles/variables/colors.scss';
 @import '../../styles/variables/sizes.scss';
+@import '../../styles/mixins/responsive.scss';
 
 .success {
   height: 80vh;
@@ -9,6 +10,10 @@
   align-items: center;
   text-align: center;
   justify-content: space-between;
+
+  @include onTablet {
+    max-width: 640px;
+  }
 
   &__content {
     display: flex;

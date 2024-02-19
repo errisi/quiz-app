@@ -1,17 +1,15 @@
 /* eslint-disable operator-linebreak */
 import { FC } from 'react';
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import styles from './Header.module.scss';
 import { useAppSelector } from '../../store/hooks';
 
 export const Header: FC = () => {
   const location = useLocation();
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { page: pageFromParams } = useParams();
 
-  const pageFromParams = searchParams.get('page') || '1';
-
-  const page = Number(pageFromParams);
+  const page = Number(pageFromParams || '1');
 
   const { questions } = useAppSelector((state) => state.Questions);
 
@@ -19,10 +17,6 @@ export const Header: FC = () => {
 
   const handleGoBack = () => {
     navigate(-1);
-  };
-
-  const handleGoForward = () => {
-    setSearchParams(`?page=${page + 1 <= questions.length ? page + 1 : page}`);
   };
 
   return (
@@ -33,8 +27,8 @@ export const Header: FC = () => {
           type='button'
           onClick={handleGoBack}
           disabled={
-            location.pathname !== '/quiz/' ||
-            (location.pathname === '/quiz/' && page <= 2)
+            location.pathname.split('/')[1] !== 'quiz' ||
+            (location.pathname.split('/')[1] === 'quiz' && page <= 2)
           }
           className={styles.quiz__header__top__button}
         >
@@ -44,7 +38,7 @@ export const Header: FC = () => {
             className={styles.quiz__header__top__button__icon}
           />
         </button>
-        {location.pathname === '/quiz/' && (
+        {location.pathname.split('/')[1] === 'quiz' && (
           <div className={styles.quiz__header__top__pages}>
             <span className={styles.quiz__header__top__pages__page}>
               {page}
@@ -57,7 +51,6 @@ export const Header: FC = () => {
         <button
           aria-label='nav__button'
           type='button'
-          onClick={handleGoForward}
           className={styles.quiz__header__top__button}
         >
           <img
@@ -68,7 +61,7 @@ export const Header: FC = () => {
         </button>
       </div>
 
-      {location.pathname === '/quiz/' && (
+      {location.pathname.split('/')[1] === 'quiz' && (
         <div className={styles.quiz__progress__wrapper}>
           <div className={styles.quiz__progress}>
             <div
