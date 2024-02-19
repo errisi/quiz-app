@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "ownerSlug": "book-quiz",
+    "type": "single-select",
+    "title": "What is your preferred language?",
+    "hint": "Choose language",
+    "options": [
+      { "value": "English" },
+      { "value": "French" },
+      { "value": "German" },
+      { "value": "Spanish" }
+    ]
+  },
+  {
+    "id": 2,
+    "ownerSlug": "book-quiz",
+    "type": "single-select-image",
+    "title": "À quel genre vous identifiez-vous ?",
+    "hint": "Veuillez partager comment vous identifiez-vous",
+    "options": [
+      { "icon": "/options-icons/female-icon.png", "value": "Femelle" },
+      { "icon": "/options-icons/male-icon.png", "value": "Mâle" },
+      { "icon": "/options-icons/other-icon.png", "value": "Autre" }
+    ]
+  },
+  {
+    "id": 3,
+    "ownerSlug": "book-quiz",
+    "type": "single-select",
+    "title": "Quel âge avez-vous?",
+    "hint": null,
+    "options": [
+      { "value": "18-29 ans" },
+      { "value": "30-39 ans" },
+      { "value": "40-49 ans" },
+      { "value": "59+ ans" }
+    ]
+  },
+  {
+    "id": 4,
+    "ownerSlug": "book-quiz",
+    "type": "multiple-select",
+    "title": "Qu’est-ce que tu détestes le plus dans un livre ?",
+    "hint": null,
+    "options": [
+      { "value": "Manque de logique" },
+      { "value": "Une vitesse lente" },
+      { "value": "Manque d'humour" },
+      { "value": "Une fin bien trop générique" }
+    ]
+  },
+  {
+    "id": 5,
+    "ownerSlug": "book-quiz",
+    "type": "bubble",
+    "title": "Quels sont vos sujets favoris ?",
+    "hint": "Choisissez jusqu'à 3 sujets que vous aimez",
+    "options": [
+      { "icon": "/options-icons/warewolf-icon.png", "value": "Loup-garou" },
+      { "icon": "/options-icons/action-icon.png", "value": "Action" },
+      { "icon": "/options-icons/royal-icon.png", "value": "Obsession royale" },
+      { "icon": "/options-icons/romance-icon.png", "value": "Romance" },
+      {
+        "icon": "/options-icons/young-adult-icon.png",
+        "value": "Jeune adulte"
+      },
+      { "icon": "/options-icons/bad-boy-icon.png", "value": "Mauvais garçon" },
+      { "icon": "/options-icons/billionaire-icon.png", "value": "Milliardaire" }
+    ]
+  }
+]

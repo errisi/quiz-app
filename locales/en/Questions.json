@@ -1,0 +1,69 @@
+[
+  {
+    "id": 1,
+    "ownerSlug": "book-quiz",
+    "type": "single-select",
+    "title": "What is your preferred language?",
+    "hint": "Choose language",
+    "options": [
+      { "value": "English" },
+      { "value": "French" },
+      { "value": "German" },
+      { "value": "Spanish" }
+    ]
+  },
+  {
+    "id": 2,
+    "ownerSlug": "book-quiz",
+    "type": "single-select-image",
+    "title": "What gender do you identify with?",
+    "hint": "Please share how do you identify yourself",
+    "options": [
+      { "icon": "/options-icons/female-icon.png", "value": "Female" },
+      { "icon": "/options-icons/male-icon.png", "value": "Male" },
+      { "icon": "/options-icons/other-icon.png", "value": "Other" }
+    ]
+  },
+  {
+    "id": 3,
+    "ownerSlug": "book-quiz",
+    "type": "single-select",
+    "title": "What is your age?",
+    "hint": null,
+    "options": [
+      { "value": "18-29 years" },
+      { "value": "30-39 years" },
+      { "value": "40-49 years" },
+      { "value": "59+ years" }
+    ]
+  },
+  {
+    "id": 4,
+    "ownerSlug": "book-quiz",
+    "type": "multiple-select",
+    "title": "What do you hate the most in a book?",
+    "hint": null,
+    "options": [
+      { "value": "Lack of logic" },
+      { "value": "A slow speed" },
+      { "value": "Lack of humor" },
+      { "value": "Way too generic ending" }
+    ]
+  },
+  {
+    "id": 5,
+    "ownerSlug": "book-quiz",
+    "type": "bubble",
+    "title": "What are your favorite topics?",
+    "hint": "Choose up to 3 topics you like",
+    "options": [
+      { "icon": "/options-icons/warewolf-icon.png", "value": "Werewolf" },
+      { "icon": "/options-icons/action-icon.png", "value": "Action" },
+      { "icon": "/options-icons/royal-icon.png", "value": "Royal Obsession" },
+      { "icon": "/options-icons/romance-icon.png", "value": "Romance" },
+      { "icon": "/options-icons/young-adult-icon.png", "value": "Young Adult" },
+      { "icon": "/options-icons/bad-boy-icon.png", "value": "Bad Boy" },
+      { "icon": "/options-icons/billionaire-icon.png", "value": "Billionaire" }
+    ]
+  }
+]
