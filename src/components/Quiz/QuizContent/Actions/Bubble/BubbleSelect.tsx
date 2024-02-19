@@ -1,8 +1,10 @@
-import { FC, useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Question } from '../../../../../types/Question';
 import styles from './BubbleSelect.module.scss';
 import { Button } from '../../../../Button/Button';
+import { useAppSelector } from '../../../../../store/hooks';
 
 type Props = {
   question: Question;
@@ -20,6 +22,39 @@ export const BubbleSelect: FC<Props> = ({ question, handleGoForward }) => {
         : [...currentOptions, option],
     );
   };
+
+  const { answers } = useAppSelector((state) => state.Answers);
+
+  useEffect(() => {
+    if (question.title === 'What are your favorite topics?') {
+      const previusAnswer = answers.find(
+        (a) => a.title === 'What is your age?',
+      );
+
+      if (previusAnswer) {
+        switch (previusAnswer.answer) {
+          case '18-29 years':
+            setSelectedOptions(['Werewolf', 'Bad Boy', 'Billionaire']);
+            break;
+
+          case '30-39 years':
+            setSelectedOptions(['Young Adult', 'Action']);
+            break;
+
+          case '40-49 years':
+            setSelectedOptions(['Romance', 'Royal Obsession']);
+            break;
+
+          case '59+ years':
+            setSelectedOptions(['Romance', 'Action']);
+            break;
+
+          default:
+            setSelectedOptions([]);
+        }
+      }
+    }
+  }, []);
 
   return (
     <div className={styles.actions__wrapper}>
