@@ -3,9 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import styles from './EmailPage.module.scss';
 import { Button } from '../../components/Button/Button';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import * as AnswersActions from '../../store/reducers/Answers';
 
 export const EmailPage = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const { answers } = useAppSelector((state) => state.Answers);
+
   const [email, setEmail] = useState('');
   const [emailDitry, setEmailDitry] = useState(false);
   const [emailError, setEmailError] = useState(t('email.error-empty'));
@@ -36,10 +42,23 @@ export const EmailPage = () => {
     }
   };
 
-  const navigate = useNavigate();
-
   const onEmailBlur = () => {
     setEmailDitry(true);
+  };
+
+  const goForward = () => {
+    dispatch(
+      AnswersActions.set([
+        ...answers,
+        {
+          title: 'Email',
+          type: 'email',
+          answer: email,
+        },
+      ]),
+    );
+
+    navigate('../success');
   };
 
   return (
@@ -73,10 +92,7 @@ export const EmailPage = () => {
         />
       </div>
 
-      <Button
-        onClick={() => navigate('../success')}
-        disabled={!!emailError.length}
-      >
+      <Button onClick={goForward} disabled={!!emailError.length}>
         {t('button.next')}
       </Button>
     </div>
