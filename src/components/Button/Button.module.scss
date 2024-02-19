@@ -13,8 +13,10 @@
   color: var(--color-text-primary-light);
   letter-spacing: 0.4px;
   transition: opacity 0.2s;
+  cursor: pointer;
 
   &:disabled {
     opacity: 40%;
+    cursor: default;
   }
 }

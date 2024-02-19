@@ -22,10 +22,6 @@
       background-color 0.2s,
       border 0.2s;
 
-    &:hover {
-      background-color: var(--color-secondary-dark);
-    }
-
     &:active {
       background-color: var(--color-secondary-dark-20);
       border: var(--color-secondary-dark) 1px solid;
