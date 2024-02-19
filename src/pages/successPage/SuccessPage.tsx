@@ -37,7 +37,7 @@ export const SuccessPage = () => {
           </p>
         </div>
         <img
-          src='/success-mark.svg'
+          src='./success-mark.svg'
           alt='success-mark'
           className={styles.success__content__mark}
         />
