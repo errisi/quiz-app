@@ -19,9 +19,9 @@
     "title": "À quel genre vous identifiez-vous ?",
     "hint": "Veuillez partager comment vous identifiez-vous",
     "options": [
-      { "icon": "/options-icons/female-icon.png", "value": "Femelle" },
-      { "icon": "/options-icons/male-icon.png", "value": "Mâle" },
-      { "icon": "/options-icons/other-icon.png", "value": "Autre" }
+      { "icon": "./options-icons/female-icon.png", "value": "Femelle" },
+      { "icon": "./options-icons/male-icon.png", "value": "Mâle" },
+      { "icon": "./options-icons/other-icon.png", "value": "Autre" }
     ]
   },
   {
@@ -57,16 +57,16 @@
     "title": "Quels sont vos sujets favoris ?",
     "hint": "Choisissez jusqu'à 3 sujets que vous aimez",
     "options": [
-      { "icon": "/options-icons/warewolf-icon.png", "value": "Loup-garou" },
-      { "icon": "/options-icons/action-icon.png", "value": "Action" },
-      { "icon": "/options-icons/royal-icon.png", "value": "Obsession royale" },
-      { "icon": "/options-icons/romance-icon.png", "value": "Romance" },
+      { "icon": "./options-icons/warewolf-icon.png", "value": "Loup-garou" },
+      { "icon": "./options-icons/action-icon.png", "value": "Action" },
+      { "icon": "./options-icons/royal-icon.png", "value": "Obsession royale" },
+      { "icon": "./options-icons/romance-icon.png", "value": "Romance" },
       {
-        "icon": "/options-icons/young-adult-icon.png",
+        "icon": "./options-icons/young-adult-icon.png",
         "value": "Jeune adulte"
       },
-      { "icon": "/options-icons/bad-boy-icon.png", "value": "Mauvais garçon" },
-      { "icon": "/options-icons/billionaire-icon.png", "value": "Milliardaire" }
+      { "icon": "./options-icons/bad-boy-icon.png", "value": "Mauvais garçon" },
+      { "icon": "./options-icons/billionaire-icon.png", "value": "Milliardaire" }
     ]
   }
 ]

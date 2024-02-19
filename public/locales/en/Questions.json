@@ -19,9 +19,9 @@
     "title": "What gender do you identify with?",
     "hint": "Please share how do you identify yourself",
     "options": [
-      { "icon": "/options-icons/female-icon.png", "value": "Female" },
-      { "icon": "/options-icons/male-icon.png", "value": "Male" },
-      { "icon": "/options-icons/other-icon.png", "value": "Other" }
+      { "icon": "./options-icons/female-icon.png", "value": "Female" },
+      { "icon": "./options-icons/male-icon.png", "value": "Male" },
+      { "icon": "./options-icons/other-icon.png", "value": "Other" }
     ]
   },
   {
@@ -57,13 +57,13 @@
     "title": "What are your favorite topics?",
     "hint": "Choose up to 3 topics you like",
     "options": [
-      { "icon": "/options-icons/warewolf-icon.png", "value": "Werewolf" },
-      { "icon": "/options-icons/action-icon.png", "value": "Action" },
-      { "icon": "/options-icons/royal-icon.png", "value": "Royal Obsession" },
-      { "icon": "/options-icons/romance-icon.png", "value": "Romance" },
-      { "icon": "/options-icons/young-adult-icon.png", "value": "Young Adult" },
-      { "icon": "/options-icons/bad-boy-icon.png", "value": "Bad Boy" },
-      { "icon": "/options-icons/billionaire-icon.png", "value": "Billionaire" }
+      { "icon": "./options-icons/warewolf-icon.png", "value": "Werewolf" },
+      { "icon": "./options-icons/action-icon.png", "value": "Action" },
+      { "icon": "./options-icons/royal-icon.png", "value": "Royal Obsession" },
+      { "icon": "./options-icons/romance-icon.png", "value": "Romance" },
+      { "icon": "./options-icons/young-adult-icon.png", "value": "Young Adult" },
+      { "icon": "./options-icons/bad-boy-icon.png", "value": "Bad Boy" },
+      { "icon": "./options-icons/billionaire-icon.png", "value": "Billionaire" }
     ]
   }
 ]
