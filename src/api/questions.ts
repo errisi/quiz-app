@@ -1,6 +1,6 @@
 import { Locale } from '../types/Locale';
 
-const BASE_URL = '/public/locales';
+const BASE_URL = '/locales';
 
 async function request(url: string) {
   return fetch(BASE_URL + url).then((response) => {
