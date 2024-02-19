@@ -19,9 +19,9 @@
     "title": "Mit welchem ​​Geschlecht identifizierst du dich?",
     "hint": "Bitte teilen Sie uns mit, wie Sie sich identifizieren",
     "options": [
-      { "icon": "/options-icons/female-icon.png", "value": "Weiblich" },
-      { "icon": "/options-icons/male-icon.png", "value": "Männlich" },
-      { "icon": "/options-icons/other-icon.png", "value": "Andere" }
+      { "icon": "./options-icons/female-icon.png", "value": "Weiblich" },
+      { "icon": "./options-icons/male-icon.png", "value": "Männlich" },
+      { "icon": "./options-icons/other-icon.png", "value": "Andere" }
     ]
   },
   {
@@ -57,19 +57,19 @@
     "title": "Was sind deine Lieblingsthemen?",
     "hint": "Wählen Sie bis zu 3 Themen aus, die Ihnen gefallen",
     "options": [
-      { "icon": "/options-icons/warewolf-icon.png", "value": "Werwolf" },
-      { "icon": "/options-icons/action-icon.png", "value": "Aktion" },
+      { "icon": "./options-icons/warewolf-icon.png", "value": "Werwolf" },
+      { "icon": "./options-icons/action-icon.png", "value": "Aktion" },
       {
-        "icon": "/options-icons/royal-icon.png",
+        "icon": "./options-icons/royal-icon.png",
         "value": "Königliche Obsession"
       },
-      { "icon": "/options-icons/romance-icon.png", "value": "Romantik" },
+      { "icon": "./options-icons/romance-icon.png", "value": "Romantik" },
       {
-        "icon": "/options-icons/young-adult-icon.png",
+        "icon": "./options-icons/young-adult-icon.png",
         "value": "Junger Erwachsener"
       },
-      { "icon": "/options-icons/bad-boy-icon.png", "value": "Böser Bub" },
-      { "icon": "/options-icons/billionaire-icon.png", "value": "Milliardär" }
+      { "icon": "./options-icons/bad-boy-icon.png", "value": "Böser Bub" },
+      { "icon": "./options-icons/billionaire-icon.png", "value": "Milliardär" }
     ]
   }
 ]
