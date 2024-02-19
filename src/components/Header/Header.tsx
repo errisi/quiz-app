@@ -1,4 +1,3 @@
-/* eslint-disable operator-linebreak */
 import { FC } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import styles from './Header.module.scss';
@@ -15,9 +14,11 @@ export const Header: FC = () => {
 
   const navigate = useNavigate();
 
-  const handleGoBack = () => {
+  const goBack = () => {
     navigate(-1);
   };
+
+  const isTheCurrentPageQuizPage = location.pathname.split('/')[1] === 'quiz';
 
   return (
     <div className={styles.quiz__header}>
@@ -25,20 +26,19 @@ export const Header: FC = () => {
         <button
           aria-label='nav__button'
           type='button'
-          onClick={handleGoBack}
+          onClick={goBack}
           disabled={
-            location.pathname.split('/')[1] !== 'quiz' ||
-            (location.pathname.split('/')[1] === 'quiz' && page <= 2)
+            !isTheCurrentPageQuizPage || (isTheCurrentPageQuizPage && page <= 2)
           }
           className={styles.quiz__header__top__button}
         >
           <img
             src='./back-button.svg'
-            alt=''
+            alt='back'
             className={styles.quiz__header__top__button__icon}
           />
         </button>
-        {location.pathname.split('/')[1] === 'quiz' && (
+        {isTheCurrentPageQuizPage && (
           <div className={styles.quiz__header__top__pages}>
             <span className={styles.quiz__header__top__pages__page}>
               {page}
@@ -55,13 +55,13 @@ export const Header: FC = () => {
         >
           <img
             src='./button.svg'
-            alt=''
+            alt='nav-button'
             className={styles.quiz__header__top__button__icon}
           />
         </button>
       </div>
 
-      {location.pathname.split('/')[1] === 'quiz' && (
+      {isTheCurrentPageQuizPage && (
         <div className={styles.quiz__progress__wrapper}>
           <div className={styles.quiz__progress}>
             <div

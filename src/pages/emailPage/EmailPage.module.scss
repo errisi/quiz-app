@@ -36,7 +36,7 @@
         font-size: 30px;
         line-height: 38px;
         text-align: center;
-        color: $color-text-primary-light;
+        color: var(--color-text-primary-light);
       }
 
       &__hint {
@@ -45,7 +45,7 @@
         font-size: 15px;
         line-height: 22px;
         text-align: center;
-        color: $color-text-secondary-50;
+        color: var(--color-text-secondary-50);
       }
     }
 
@@ -55,11 +55,11 @@
       font-size: 12px;
       line-height: 18px;
       text-align: center;
-      color: $color-text-secondary-dark;
+      color: var(--color-text-secondary-dark);
       max-width: 280px;
 
       &_span {
-        color: $color-link-primary;
+        color: var(--color-link-primary);
       }
     }
   }
@@ -77,8 +77,8 @@
 .input {
   height: 76px;
   width: 100%;
-  color: $color-text-primary-light;
-  background-color: $color-primary-light;
+  color: var(--color-text-primary-light);
+  background-color: var(--color-primary-light);
   border: 2px solid transparent;
   padding: 20px;
   border-radius: 16px;
@@ -88,20 +88,20 @@
   font-weight: 500;
 
   &::placeholder {
-    color: $color-text-secondary-50;
+    color: var(--color-text-secondary-50);
   }
 
   &:hover {
-    background-color: $color-tertiary-dark;
+    background-color: var(--color-tertiary-dark);
   }
 
   &:focus {
     outline: 0;
-    border: 2px solid $color-secondary-saturated;
+    border: 2px solid var(--color-secondary-saturated);
   }
 
   &__error {
-    color: $color-error;
+    color: var(--color-error);
     left: 16px;
     bottom: 0;
     position: absolute;

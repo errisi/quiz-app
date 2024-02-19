@@ -1,6 +1,5 @@
-/* eslint-disable no-param-reassign */
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Answer } from '../types/Answers';
+import { Answer } from '../../types/Answers';
 
 type AnswersState = {
   answers: Answer[];

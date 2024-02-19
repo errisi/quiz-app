@@ -6,14 +6,14 @@ import { Button } from '../../../../Button/Button';
 
 type Props = {
   question: Question;
-  handleGoForward: (answer: string) => void;
+  goForward: (answer: string) => void;
 };
 
-export const MultipleSelect: FC<Props> = ({ question, handleGoForward }) => {
+export const MultipleSelect: FC<Props> = ({ question, goForward }) => {
   const { t } = useTranslation();
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
-  const handleToggleCheckbox = (option: string) => {
+  const toggleCheckbox = (option: string) => {
     setSelectedOptions((currentOptions) =>
       currentOptions.includes(option)
         ? currentOptions.filter((currentOption) => currentOption !== option)
@@ -26,8 +26,9 @@ export const MultipleSelect: FC<Props> = ({ question, handleGoForward }) => {
       <div className={styles.select}>
         {question.options.map((option) => (
           <button
-            onClick={() => handleToggleCheckbox(option.value)}
-            aria-label=''
+            key={option.value}
+            onClick={() => toggleCheckbox(option.value)}
+            aria-label='toggle-checkbox'
             type='button'
             className={
               selectedOptions.includes(option.value)
@@ -58,7 +59,7 @@ export const MultipleSelect: FC<Props> = ({ question, handleGoForward }) => {
       </div>
 
       <Button
-        onClick={() => handleGoForward(selectedOptions.join(', '))}
+        onClick={() => goForward(selectedOptions.join(', '))}
         disabled={!selectedOptions.length}
       >
         {t('button.next')}

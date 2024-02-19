@@ -1,12 +1,11 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from './QuizPage.module.scss';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import * as QuestionsActions from '../../features/Questions';
-import * as AnswersActions from '../../features/Answers';
-import * as LocaleActions from '../../features/Locale';
+import * as QuestionsActions from '../../store/reducers/Questions';
+import * as AnswersActions from '../../store/reducers/Answers';
+import * as LocaleActions from '../../store/reducers/Locale';
 import { QuizContent } from '../../components/Quiz/QuizContent/QuizContent';
 
 export const QuizPage = () => {
@@ -33,7 +32,7 @@ export const QuizPage = () => {
   useEffect(() => {
     dispatch(QuestionsActions.init(lang));
     i18n.changeLanguage(lang);
-  }, [lang]);
+  }, [dispatch, i18n, lang]);
 
   useEffect(() => {
     if (answers[0] && page === 2) {
@@ -72,7 +71,7 @@ export const QuizPage = () => {
     }
   }, [page]);
 
-  const handleGoForward = (answer: string) => {
+  const goForward = (answer: string) => {
     dispatch(
       AnswersActions.set([
         ...answers,
@@ -93,18 +92,17 @@ export const QuizPage = () => {
     navigate('../../loader/');
   };
 
+  const isContentReady = questions.length > 0 && !loading && !error;
+
   return (
     <>
       {loading && <h1>Loading</h1>}
 
       {error && <h1>Error: {error} </h1>}
 
-      {questions.length > 0 && !loading && !error && (
+      {isContentReady && (
         <div className={styles.quiz}>
-          <QuizContent
-            question={currentQuestion}
-            handleGoForward={handleGoForward}
-          />
+          <QuizContent question={currentQuestion} goForward={goForward} />
         </div>
       )}
     </>

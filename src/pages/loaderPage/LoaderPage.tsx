@@ -8,14 +8,14 @@ export const LoaderPage = () => {
 
   const navigate = useNavigate();
 
-  const action = () => {
+  const onFinish = () => {
     navigate('../email/');
   };
 
   return (
     <div className={styles.loader__wrapper}>
       <div className={styles.loader}>
-        <Loader action={action} />
+        <Loader onFinish={onFinish} />
         <p className={styles.loader__description}>{t('loader.hint')}</p>
       </div>
     </div>

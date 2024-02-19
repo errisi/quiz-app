@@ -11,9 +11,9 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import QuestionsReducer from '../features/Questions';
-import AnswersReducer from '../features/Answers';
-import LocaleReducer from '../features/Locale';
+import QuestionsReducer from './reducers/Questions';
+import AnswersReducer from './reducers/Answers';
+import LocaleReducer from './reducers/Locale';
 
 const rootReducer = combineReducers({
   Questions: QuestionsReducer,

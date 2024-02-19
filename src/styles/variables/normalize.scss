@@ -1,8 +1,7 @@
 @import './colors.scss';
 
 html {
-  background-color: $color-primary-dark;
-  // background-image: url(/public/background.png);
+  background-color: var(--color-primary-dark);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -31,7 +31,7 @@
   grid-gap: 0;
 
   &__item {
-    background-color: $color-primary-light;
+    background-color: var(--color-primary-light);
     width: 88px;
     height: 88px;
     border-radius: 100%;
@@ -53,16 +53,16 @@
     }
 
     &:hover {
-      background-color: $color-secondary-dark-20;
+      background-color: var(--color-secondary-dark-20);
     }
 
     &:active {
-      background-color: $color-secondary-dark-20;
-      border: $color-secondary-dark 2px solid;
+      background-color: var(--color-secondary-dark-20);
+      border: var(--color-secondary-dark) 2px solid;
     }
 
     &_active {
-      background-color: $color-primary-light;
+      background-color: var(--color-primary-light);
       width: 88px;
       height: 88px;
       border-radius: 100%;
@@ -77,7 +77,7 @@
       transition:
         background-color 0.2s,
         border 0.2s;
-      border: $color-secondary-dark 2px solid;
+      border: var(--color-secondary-dark) 2px solid;
 
       &:nth-child(even) {
         align-self: end;
@@ -92,7 +92,7 @@
       font-weight: 600;
       font-size: 13px;
       line-height: 16px;
-      color: $color-text-primary-light;
+      color: var(--color-text-primary-light);
     }
 
     &__icon {

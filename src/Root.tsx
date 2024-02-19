@@ -1,19 +1,31 @@
+import { Suspense } from 'react';
 import {
   HashRouter as Router,
   Routes,
   Route,
   Navigate,
+  Outlet,
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { QuizPage } from './pages/quizPage/QuizPage';
-import { App } from './App';
 import { LoaderPage } from './pages/loaderPage/LoaderPage';
 import { SuccessPage } from './pages/successPage/SuccessPage';
 import { NotFoundPage } from './pages/notFoundPage/NotFoundPage';
 import { EmailPage } from './pages/emailPage/EmailPage';
+import { Header } from './components/Header/Header';
+import { Container } from './components/Container/Container';
 import store, { persistor } from './store/store';
 import './i18n';
+
+const App = () => (
+  <Suspense fallback='en'>
+    <Container>
+      <Header />
+      <Outlet />
+    </Container>
+  </Suspense>
+);
 
 export const Root = () => (
   <Provider store={store}>

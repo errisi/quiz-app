@@ -18,7 +18,7 @@
   gap: 12px;
 
   &__item {
-    background-color: $color-primary-light;
+    background-color: var(--color-primary-light);
     width: 100%;
     min-height: 60px;
     border-radius: 16px;
@@ -32,16 +32,16 @@
       border 0.2s;
 
     &:hover {
-      background-color: $color-secondary-dark-20;
+      background-color: var(--color-secondary-dark-20);
     }
 
     &:active {
-      background-color: $color-secondary-dark-20;
-      border: $color-secondary-dark 1px solid;
+      background-color: var(--color-secondary-dark-20);
+      border: var(--color-secondary-dark) 1px solid;
     }
 
     &_active {
-      background-color: $color-primary-light;
+      background-color: var(--color-primary-light);
       width: 100%;
       min-height: 60px;
       border-radius: 16px;
@@ -52,8 +52,8 @@
       transition:
         background-color 0.2s,
         border 0.2s;
-      background-color: $color-secondary-dark-20;
-      border: $color-secondary-dark 1px solid;
+      background-color: var(--color-secondary-dark-20);
+      border: var(--color-secondary-dark) 1px solid;
     }
 
     &__content {
@@ -71,21 +71,21 @@
         font-size: 17px;
         line-height: 24px;
         padding: 20px 0 18px;
-        color: $color-text-primary-light;
+        color: var(--color-text-primary-light);
       }
 
       &__checkbox {
         width: 23px;
         height: 23px;
-        border: 1px solid $color-secondary-dark;
-        background-color: $color-tertiary;
+        border: 1px solid var(--color-secondary-dark);
+        background-color: var(--color-tertiary);
         border-radius: 8px;
 
         &_checked {
           width: 23px;
           height: 23px;
-          border: 1px solid $color-secondary-dark;
-          background-color: $color-secondary-dark;
+          border: 1px solid var(--color-secondary-dark);
+          background-color: var(--color-secondary-dark);
           border-radius: 8px;
           position: relative;
           background-image: url(/public/checkbox-mark.svg);

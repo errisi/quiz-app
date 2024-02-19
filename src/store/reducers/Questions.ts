@@ -1,8 +1,7 @@
-/* eslint-disable no-param-reassign */
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { Question } from '../types/Question';
-import { getQuestions } from '../api/questions';
-import { Locale } from '../types/Locale';
+import { Question } from '../../types/Question';
+import { getQuestions } from '../../api/questions';
+import { Locale } from '../../types/Locale';
 
 type QuestionsState = {
   questions: Question[];

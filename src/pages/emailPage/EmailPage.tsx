@@ -69,7 +69,6 @@ export const EmailPage = () => {
 
         <p
           className={styles.email_page__content__agreement}
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: formattedAgreement }}
         />
       </div>

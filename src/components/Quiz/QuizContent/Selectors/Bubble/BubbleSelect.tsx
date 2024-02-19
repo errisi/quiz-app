@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Question } from '../../../../../types/Question';
@@ -8,14 +7,14 @@ import { useAppSelector } from '../../../../../store/hooks';
 
 type Props = {
   question: Question;
-  handleGoForward: (answer: string) => void;
+  goForward: (answer: string) => void;
 };
 
-export const BubbleSelect: FC<Props> = ({ question, handleGoForward }) => {
+export const BubbleSelect: FC<Props> = ({ question, goForward }) => {
   const { t } = useTranslation();
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
-  const handleToggleCheckbox = (option: string) => {
+  const toggleCheckbox = (option: string) => {
     setSelectedOptions((currentOptions) =>
       currentOptions.includes(option)
         ? currentOptions.filter((currentOption) => currentOption !== option)
@@ -54,7 +53,7 @@ export const BubbleSelect: FC<Props> = ({ question, handleGoForward }) => {
         }
       }
     }
-  }, []);
+  }, [answers, question.title]);
 
   return (
     <div className={styles.actions__wrapper}>
@@ -62,8 +61,9 @@ export const BubbleSelect: FC<Props> = ({ question, handleGoForward }) => {
         <div className={styles.select}>
           {question.options.map((option) => (
             <button
-              onClick={() => handleToggleCheckbox(option.value)}
-              aria-label=''
+              key={option.value}
+              onClick={() => toggleCheckbox(option.value)}
+              aria-label='toggle-checkbox'
               type='button'
               className={
                 selectedOptions.includes(option.value)
@@ -75,7 +75,7 @@ export const BubbleSelect: FC<Props> = ({ question, handleGoForward }) => {
                 <img
                   className={styles.select__item__icon}
                   src={option.icon}
-                  alt=''
+                  alt='item-icon'
                 />
               )}
               <p className={styles.select__item__text}>{option.value}</p>
@@ -85,7 +85,7 @@ export const BubbleSelect: FC<Props> = ({ question, handleGoForward }) => {
       </div>
 
       <Button
-        onClick={() => handleGoForward(selectedOptions.join(', '))}
+        onClick={() => goForward(selectedOptions.join(', '))}
         disabled={!selectedOptions.length}
       >
         {t('button.next')}

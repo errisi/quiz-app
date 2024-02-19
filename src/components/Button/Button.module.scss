@@ -3,14 +3,14 @@
 
 .button {
   width: 100%;
-  min-height: $button-height;
-  background-color: $color-secondary;
+  min-height: var(--button-height);
+  background-color: var(--color-secondary);
   border-radius: 100px;
   font-family: Albert Sans;
   font-weight: 800;
   font-size: 17px;
   line-height: 24px;
-  color: $color-text-primary-light;
+  color: var(--color-text-primary-light);
   letter-spacing: 0.4px;
   transition: opacity 0.2s;
 

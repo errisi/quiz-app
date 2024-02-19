@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import exportFromJSON from 'export-from-json';
-import * as AnswersActions from '../../features/Answers';
+import * as AnswersActions from '../../store/reducers/Answers';
 import { Button } from '../../components/Button/Button';
 import styles from './SuccessPage.module.scss';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -18,12 +18,11 @@ export const SuccessPage = () => {
 
   const { answers } = useAppSelector((state) => state.Answers);
 
-  const handleAnswersDownload = () => {
-    const data = answers;
+  const onExport = () => {
     const fileName = 'answers';
     const exportType = exportFromJSON.types.csv;
 
-    exportFromJSON({ data, fileName, exportType });
+    exportFromJSON({ data: answers, fileName, exportType });
   };
 
   return (
@@ -47,10 +46,10 @@ export const SuccessPage = () => {
       <div className={styles.success__actions}>
         <button
           type='button'
-          onClick={handleAnswersDownload}
+          onClick={onExport}
           className={styles.success__actions__download}
         >
-          <img src='./download-icon.svg' alt='' />
+          <img src='./download-icon.svg' alt='download-icon' />
           {t('success.download')}
         </button>
         <Button onClick={handleRetakeQuiz}>{t('button.retake')}</Button>

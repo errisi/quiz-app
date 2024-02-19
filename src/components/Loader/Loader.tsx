@@ -3,10 +3,10 @@ import styles from './Loader.module.scss';
 
 type Props = {
   duration?: number;
-  action: () => void;
+  onFinish: () => void;
 };
 
-export const Loader: FC<Props> = ({ duration = 5, action }) => {
+export const Loader: FC<Props> = ({ duration = 5, onFinish }) => {
   const [percentage, setPercentage] = useState(0);
 
   const strokeWidth = 12;
@@ -34,9 +34,9 @@ export const Loader: FC<Props> = ({ duration = 5, action }) => {
 
   useEffect(() => {
     if (percentage === 100) {
-      action();
+      onFinish();
     }
-  }, [action, percentage]);
+  }, [onFinish, percentage]);
 
   return (
     <svg width={square} height={square} viewBox={`0 0 ${square} ${square}`}>
