@@ -3,7 +3,7 @@ import { Answer } from '../types/Answers';
 import { Locale } from '../types/Locale';
 
 export async function getQuestions(locale: Locale) {
-  return httpClient.get(`/${locale}/Questions.json`);
+  return (await httpClient.get(`/${locale}/Questions.json`)).data;
 }
 
 export async function postAnswers(answers: Answer[]) {
