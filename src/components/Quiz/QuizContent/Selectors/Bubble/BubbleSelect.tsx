@@ -16,9 +16,9 @@ export const BubbleSelect: FC<Props> = ({ question, goForward }) => {
 
   const toggleCheckbox = (option: string) => {
     setSelectedOptions((currentOptions) =>
-      currentOptions.includes(option)
-        ? currentOptions.filter((currentOption) => currentOption !== option)
-        : [...currentOptions, option],
+      !currentOptions.includes(option) && currentOptions.length < 3
+        ? [...currentOptions, option]
+        : currentOptions.filter((currentOption) => currentOption !== option),
     );
   };
 

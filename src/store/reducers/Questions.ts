@@ -1,6 +1,6 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { Question } from '../../types/Question';
-import { getQuestions } from '../../api/questions';
+import { getQuestions } from '../../api/quiz';
 import { Locale } from '../../types/Locale';
 
 type QuestionsState = {

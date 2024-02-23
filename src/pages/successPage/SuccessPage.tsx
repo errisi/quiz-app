@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import exportFromJSON from 'export-from-json';
 import * as AnswersActions from '../../store/reducers/Answers';
 import { Button } from '../../components/Button/Button';
 import styles from './SuccessPage.module.scss';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { postAnswers } from '../../api/quiz';
 
 export const SuccessPage = () => {
   const dispatch = useAppDispatch();
@@ -24,6 +26,10 @@ export const SuccessPage = () => {
 
     exportFromJSON({ data: answers, fileName, exportType });
   };
+
+  useEffect(() => {
+    postAnswers(answers);
+  }, [answers]);
 
   return (
     <div className={styles.success}>
