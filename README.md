@@ -1,1 +1,1 @@
-[DEMO LINK](https://errisi.github.io/HolyWaterTest/)
+[DEMO LINK](https://errisi.github.io/quiz-app/)
