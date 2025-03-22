@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <div className="min-h-[100svh] bg-gradient-to-b from-background to-secondary">
       <div className="container mx-auto px-4 py-12">
-        <div className="flex items-center text-[#1677ff] text-3xl font-semibold w-full justify-center mb-4 select-none">
+        <div className="flex items-center text-[#cb6ce6] text-3xl font-semibold w-full justify-center mb-4 select-none gap-2">
           <img
             src={logoImg.src}
             alt=""
