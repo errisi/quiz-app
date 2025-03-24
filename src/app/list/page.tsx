@@ -75,7 +75,7 @@ export default function QuizResults() {
                       : 'text-red-500'
                   }`}
                 >
-                  {score}%
+                  {Math.round(score)}%
                 </span>
               </p>
               <p className="text-sm text-gray-500 mt-2">
